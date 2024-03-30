@@ -8,21 +8,17 @@ import Principal from "./pages/Principal";
 import ProtectedRoute from "./ProtectedRoute";
 function App() {
   return (
-    
     <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Principal />} />
           <Route path="/register" element={<RegisterPage />} />
-
-          <Route element={<ProtectedRoute/>}>
-          <Route path="/dashboard" element={<DashboardBase />} />
-          </Route>
-         
+          <ProtectedRoute path="/dashboard" element={<DashboardBase />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
-      );
+  );
 }
+
 
 export default App;
